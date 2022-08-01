@@ -1,6 +1,6 @@
 package utils;
 
-public enum Industry {
+public enum IndustryEnum {
 
     AGRICULTURE("Agriculture"),
     APPAREL("Apparel"),
@@ -36,7 +36,7 @@ public enum Industry {
 
     private final String industryTitle;
 
-    Industry(String industryTitle) {
+    IndustryEnum(String industryTitle) {
         this.industryTitle = industryTitle;
     }
 

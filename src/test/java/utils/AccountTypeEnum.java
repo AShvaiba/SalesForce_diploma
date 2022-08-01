@@ -1,6 +1,6 @@
 package utils;
 
-public enum AccountType {
+public enum AccountTypeEnum {
 
     ANALYST("Analyst"),
     COMPETITOR("Competitor"),
@@ -16,7 +16,7 @@ public enum AccountType {
 
     private final String accountType;
 
-    AccountType(String accountType) {
+    AccountTypeEnum(String accountType) {
         this.accountType = accountType;
     }
 

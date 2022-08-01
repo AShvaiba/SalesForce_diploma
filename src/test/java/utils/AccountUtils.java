@@ -1,17 +1,17 @@
 package utils;
 
 import UI.dto.Account;
-import com.github.javafaker.Faker;
 
-public class AccountUtils {
+import static utils.PropertyReader.getParentAccount;
 
-    private static Faker faker = new Faker();
-    private static String parentAccount = "Ernesto Osinski";
+public class AccountUtils extends BaseUtils {
+
+    private static String parentAccount = getParentAccount();
 
     public static Account createAccountWithMainInfo() {
 
-        String accountType = faker.options().option(AccountType.values()).toString();
-        String industry = faker.options().option(Industry.values()).toString();
+        String accountType = faker.options().option(AccountTypeEnum.values()).toString();
+        String industry = faker.options().option(IndustryEnum.values()).toString();
 
         return Account.builder()
                 .accountName(faker.name().fullName())

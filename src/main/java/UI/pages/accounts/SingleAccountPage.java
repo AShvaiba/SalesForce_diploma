@@ -1,6 +1,6 @@
 package UI.pages.accounts;
 
-import UI.wrappers.AccountInfoValidation;
+import UI.wrappers.AccountContactInfoValidation;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
@@ -10,27 +10,33 @@ public class SingleAccountPage {
 
     private SelenideElement accountTitle = $x("//slot[@name='primaryField']/descendant::lightning-formatted-text");
 
-    public void checkAccountTitle(String expectedTitle) {
+    public SingleAccountPage checkAccountTitle(String expectedTitle) {
         accountTitle.shouldHave(Condition.exactText(expectedTitle));
+        return this;
     }
 
-    public void checkAccountType(String expectedType) {
-        new AccountInfoValidation("Type").validateDisplayedText(expectedType);
+    public SingleAccountPage checkAccountType(String expectedType) {
+        new AccountContactInfoValidation("Type").validateDisplayedText(expectedType);
+        return this;
     }
 
-    public void checkAccountIndustry(String expectedIndustry) {
-        new AccountInfoValidation("Industry").validateDisplayedText(expectedIndustry);
+    public SingleAccountPage checkAccountIndustry(String expectedIndustry) {
+        new AccountContactInfoValidation("Industry").validateDisplayedText(expectedIndustry);
+        return this;
     }
 
-    public void checkAccountPhone(String expectedPhone) {
-        new AccountInfoValidation("Phone").validateLinkText(expectedPhone);
+    public SingleAccountPage checkAccountPhone(String expectedPhone) {
+        new AccountContactInfoValidation("Phone").validateLinkText(expectedPhone);
+        return this;
     }
 
-    public void checkAccountWebsite(String expectedWebsite) {
-        new AccountInfoValidation("Website").validateLinkText(expectedWebsite);
+    public SingleAccountPage checkAccountWebsite(String expectedWebsite) {
+        new AccountContactInfoValidation("Website").validateLinkText(expectedWebsite);
+        return this;
     }
 
-    public void checkAccountOwner(String expectedOwner) {
-        new AccountInfoValidation("Account Owner").validateLinkText(expectedOwner);
+    public SingleAccountPage checkAccountOwner(String expectedOwner) {
+        new AccountContactInfoValidation("Account Owner").validateLinkText(expectedOwner);
+        return this;
     }
 }

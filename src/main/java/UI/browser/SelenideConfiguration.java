@@ -3,9 +3,9 @@ package UI.browser;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import utils.PropertyReader;
 
 import static com.codeborne.selenide.Browsers.*;
+import static utils.PropertyReader.*;
 
 public class SelenideConfiguration {
 
@@ -26,10 +26,10 @@ public class SelenideConfiguration {
     }
 
     public static void setUpBasicConfiguration() {
-        PropertyReader propertyReader = new PropertyReader();
 
-        Configuration.baseUrl = propertyReader.getLoginPageUrl();
-        Configuration.screenshots = true;
+        Configuration.baseUrl = getLoginPageUrl();
+        Configuration.screenshots = isHeadless();
+        Configuration.timeout = getTimeout();
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)

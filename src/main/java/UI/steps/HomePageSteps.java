@@ -16,4 +16,10 @@ public class HomePageSteps {
         homePage.goToAccounts();
         return this;
     }
+
+    @Step("Go to accounts page")
+    public HomePageSteps goToContactsPage() {
+        homePage.goToContacts();
+        return this;
+    }
 }

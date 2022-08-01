@@ -7,11 +7,10 @@ import UI.wrappers.InputWithSuggestion;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
 
 @Log4j2
 public class NewAccountModal {
@@ -20,7 +19,7 @@ public class NewAccountModal {
 
     private SelenideElement accountInfo = $x("//span[text()='Account Information']");
 
-    private SelenideElement errorsReviewMessage = $x("//div[@class='genericNotification']");
+    private SelenideElement errorsReviewMessage = $(By.className("genericNotification"));
 
     private SelenideElement fieldsToCheck = $x("//ul[@class='errorsList']/li");
 
@@ -33,7 +32,7 @@ public class NewAccountModal {
     @Step("Input main fields for the new account")
     public NewAccountModal inputMainInfo(Account account) {
         new Input("Account Name").writeForAccount(account.getAccountName());
-        new InputWithSuggestion("Parent Account").inputSuggestion(account.getParentAccount());
+        new InputWithSuggestion("Parent Account").inputSuggestionForAccount(account.getParentAccount());
         new Input("Phone").writeForAccount(account.getPhone());
         new Input("Fax").writeForAccount(account.getFax());
         new Input("Website").writeForAccount(account.getWebsite());
@@ -50,11 +49,13 @@ public class NewAccountModal {
         return new SingleAccountPage();
     }
 
-    public void checkErrorsReviewMessageText() {
+    public NewAccountModal checkErrorsReviewMessageText() {
         errorsReviewMessage.shouldHave(exactText("Review the errors on this page."));
+        return this;
     }
 
-    public void checkFieldsToCheckText() {
+    public NewAccountModal checkFieldsToCheckText() {
         fieldsToCheck.shouldHave(exactText("These required fields must be completed: Account Name"));
+        return this;
     }
 }

@@ -2,15 +2,14 @@ package UI;
 
 import UI.dto.Account;
 import org.testng.annotations.Test;
-import utils.AccountUtils;
 
-public class AccountsTest extends BaseTest {
+public class AccountsTest extends BaseTest implements ITestData {
 
     @Test
     public void createAccountWithMainInfo() {
-        Account testAccount = AccountUtils.createAccountWithMainInfo();
+        Account testAccount = ACCOUNT_WITH_MAIN_INFO;
 
-        loginSteps.login();
+        loginSteps.login(USER_FROM_CONFIG);
         homePageSteps.goToAccountsPage();
         accountSteps.createAccountWithMainInfo(testAccount);
 
@@ -19,9 +18,9 @@ public class AccountsTest extends BaseTest {
 
     @Test
     public void createAccountWithOnlyRequiredFields() {
-        Account testAccount = AccountUtils.createAccountWithOnlyRequiredFields();
+        Account testAccount = ACCOUNT_WITH_REQUIRED_FIELDS_ONLY;
 
-        loginSteps.login();
+        loginSteps.login(USER_FROM_CONFIG);
         homePageSteps.goToAccountsPage();
         accountSteps.createAccountWithRequiredFieldsOnly(testAccount);
 
@@ -30,7 +29,7 @@ public class AccountsTest extends BaseTest {
 
     @Test
     public void createAccountWithEmptyFields() {
-        loginSteps.login();
+        loginSteps.login(USER_FROM_CONFIG);
         homePageSteps.goToAccountsPage();
         accountSteps.createAccountWithEmptyFields();
 

@@ -15,8 +15,8 @@ public class AccountsPage {
     @Step("Click create new account button")
     public NewAccountModal goToNewAccountWindow() {
         log.info("Go to New Account modal window");
-        newAccountButton.shouldBe(visible);
-        newAccountButton.click();
+        newAccountButton.shouldBe(visible)
+                .click();
         return new NewAccountModal();
     }
 }

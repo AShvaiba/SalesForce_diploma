@@ -19,16 +19,16 @@ public class HomePage {
     @Step("Go to accounts page")
     public AccountsPage goToAccounts() {
         log.info("Go to accounts");
-        accounts.shouldBe(visible);
-        accounts.click(usingJavaScript());
+        accounts.shouldBe(visible)
+                .click(usingJavaScript());
         return new AccountsPage();
     }
 
     @Step("Go to contacts page")
     public ContactsPage goToContacts() {
         log.info("Go to contacts");
-        contacts.shouldBe(visible);
-        contacts.click(usingJavaScript());
+        contacts.shouldBe(visible)
+                .click(usingJavaScript());
         return new ContactsPage();
     }
 }

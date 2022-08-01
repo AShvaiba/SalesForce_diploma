@@ -1,5 +1,6 @@
 package UI.steps;
 
+import UI.dto.SalesforceUser;
 import UI.pages.LoginPage;
 import io.qameta.allure.Step;
 
@@ -12,10 +13,10 @@ public class LoginSteps {
     }
 
     @Step("Login to SalesForce")
-    public LoginSteps login() {
+    public LoginSteps login(SalesforceUser user) {
         loginPage.openLoginPage()
-                .enterUsername()
-                .enterPassword()
+                .enterUsername(user.getUsername())
+                .enterPassword(user.getPassword())
                 .clickLoginButton();
         return this;
     }

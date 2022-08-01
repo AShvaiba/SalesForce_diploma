@@ -28,11 +28,11 @@ public class AccountSteps {
 
     @Step("Check main info of the created account")
     public AccountSteps checkMainInfoOfCreatedAccount(Account expectedAccount) {
-        singleAccountPage.checkAccountTitle(expectedAccount.getAccountName());
-        singleAccountPage.checkAccountIndustry(expectedAccount.getIndustry());
-        singleAccountPage.checkAccountPhone(expectedAccount.getPhone());
-        singleAccountPage.checkAccountType(expectedAccount.getType());
-        singleAccountPage.checkAccountWebsite(expectedAccount.getWebsite());
+        singleAccountPage.checkAccountTitle(expectedAccount.getAccountName())
+                .checkAccountIndustry(expectedAccount.getIndustry())
+                .checkAccountPhone(expectedAccount.getPhone())
+                .checkAccountType(expectedAccount.getType())
+                .checkAccountWebsite(expectedAccount.getWebsite());
         return this;
     }
 
@@ -59,8 +59,8 @@ public class AccountSteps {
 
     @Step("Check error messages after creation of account with empty fields")
     public AccountSteps checkErrorMessages() {
-        newAccountModal.checkErrorsReviewMessageText();
-        newAccountModal.checkFieldsToCheckText();
+        newAccountModal.checkErrorsReviewMessageText()
+                .checkFieldsToCheckText();
         return this;
     }
 }
