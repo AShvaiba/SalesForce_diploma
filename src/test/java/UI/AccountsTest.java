@@ -1,6 +1,7 @@
 package UI;
 
 import UI.dto.Account;
+import data.ITestData;
 import org.testng.annotations.Test;
 
 public class AccountsTest extends BaseTest implements ITestData {

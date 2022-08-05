@@ -1,9 +1,10 @@
 package UI;
 
 import UI.dto.Contact;
+import data.ITestData;
 import org.testng.annotations.Test;
 
-public class ContactsTest extends BaseTest implements ITestData{
+public class ContactsTest extends BaseTest implements ITestData {
 
     @Test
     public void createContactWithMainInfo() {
