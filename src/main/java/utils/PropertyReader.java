@@ -55,4 +55,32 @@ public class PropertyReader {
     public static String getContactToReport() {
         return getProperty("contact.to.report");
     }
+
+    public static String getApiUrl() {
+        return getProperty("api.url");
+    }
+
+    public static String getSecurityToken() {
+        return getProperty("security.token");
+    }
+
+    public static String getGrantType() {
+        return getProperty("grant.type");
+    }
+
+    public static String getClientId() {
+        return getProperty("client.id");
+    }
+
+    public static String getClientSecret() {
+        return getProperty("client.secret");
+    }
+
+    public static String getAccessTokenEndpoint() {
+        return getProperty("access.token.endpoint");
+    }
+
+    public static String getLeadUri() {
+        return getProperty("lead.uri");
+    }
 }

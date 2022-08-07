@@ -1,6 +1,6 @@
 package utils;
 
-public enum ContactSalutationEnum {
+public enum SalutationEnum {
 
     MR("Mr."),
     MS("Ms."),
@@ -11,7 +11,7 @@ public enum ContactSalutationEnum {
 
     private final String salutation;
 
-    ContactSalutationEnum(String salutation) {
+    SalutationEnum(String salutation) {
         this.salutation = salutation;
     }
 

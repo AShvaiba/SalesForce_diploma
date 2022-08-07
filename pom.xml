@@ -10,7 +10,7 @@
 
     <properties>
         <aspect.version>1.9.9.1</aspect.version>
-        <jackson.version>2.13.3</jackson.version>
+        <jackson.version>2.11.1</jackson.version>
     </properties>
 
     <build>
@@ -117,6 +117,23 @@
             <artifactId>allure-selenide</artifactId>
             <version>2.18.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.1.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.2.2</version>
+        </dependency>
     </dependencies>
-
 </project>

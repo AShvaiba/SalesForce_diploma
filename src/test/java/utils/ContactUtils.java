@@ -11,7 +11,7 @@ public class ContactUtils extends BaseUtils {
     private static String contactToReport = getContactToReport();
 
     public static Contact createContactWithMainInfo() {
-        String salutation = faker.options().option(ContactSalutationEnum.values()).toString();
+        String salutation = faker.options().option(SalutationEnum.values()).toString();
 
         return Contact.builder()
                 .salutation(salutation)
