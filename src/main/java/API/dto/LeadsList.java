@@ -1,6 +1,7 @@
 package API.dto;
 
 import com.google.gson.annotations.SerializedName;
+import dto.Lead;
 import lombok.Builder;
 import lombok.Data;
 import org.apache.commons.lang3.RandomUtils;

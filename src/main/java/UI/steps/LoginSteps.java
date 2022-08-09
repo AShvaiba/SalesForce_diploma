@@ -1,6 +1,6 @@
 package UI.steps;
 
-import UI.dto.SalesforceUser;
+import dto.SalesforceUser;
 import UI.pages.LoginPage;
 import io.qameta.allure.Step;
 

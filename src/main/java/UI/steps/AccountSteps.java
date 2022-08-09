@@ -1,6 +1,6 @@
 package UI.steps;
 
-import UI.dto.Account;
+import dto.Account;
 import UI.pages.accounts.AccountsPage;
 import UI.pages.accounts.NewAccountModal;
 import UI.pages.accounts.SingleAccountPage;
@@ -45,7 +45,7 @@ public class AccountSteps {
     @Step("Create account with required fields only")
     public AccountSteps createAccountWithRequiredFieldsOnly(Account account) {
         newAccountModal = accountsPage.goToNewAccountWindow();
-        singleAccountPage = newAccountModal.inputRequiredFieldsOnly(account.getAccountName())
+        singleAccountPage = newAccountModal.inputRequiredFieldsOnly(account)
                 .saveAccount();
         return this;
     }
@@ -59,8 +59,10 @@ public class AccountSteps {
 
     @Step("Check error messages after creation of account with empty fields")
     public AccountSteps checkErrorMessages() {
-        newAccountModal.checkErrorsReviewMessageText()
-                .checkFieldsToCheckText();
+        newAccountModal.checkErrorIconIsDisplayed()
+                .checkErrorTextIsDisplayed()
+                .checkFieldsToReviewTextDisplayed()
+                .checkAccountNameFieldToReviewIsDisplayed();
         return this;
     }
 }

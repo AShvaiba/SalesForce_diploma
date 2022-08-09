@@ -1,6 +1,6 @@
 package UI.steps;
 
-import UI.dto.Contact;
+import dto.Contact;
 import UI.pages.contacts.ContactsPage;
 import UI.pages.contacts.NewContactModal;
 import UI.pages.contacts.SingleContactPage;
@@ -64,7 +64,6 @@ public class ContactSteps {
         newContactModal.checkErrorIconIsDisplayed()
                 .checkErrorTextIsDisplayed()
                 .checkFieldsToReviewTextDisplayed()
-                .checkAccountNameFieldToReviewIsDisplayed()
                 .checkNameFieldToReviewIsDisplayed();
         return this;
     }

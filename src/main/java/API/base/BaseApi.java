@@ -1,11 +1,11 @@
-package API;
+package API.base;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-import static API.AccessTokenGetter.getAccessToken;
+import static API.base.AccessTokenGetter.getAccessToken;
 import static io.restassured.RestAssured.*;
 import static utils.PropertyReader.getApiUrl;
 

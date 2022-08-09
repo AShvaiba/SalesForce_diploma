@@ -40,20 +40,12 @@ public class PropertyReader {
         return Boolean.parseBoolean(getProperty("headless"));
     }
 
+    public static String getBrowserSize() {
+        return getProperty("browserSize");
+    }
+
     public static long getTimeout() {
         return Long.parseLong(getProperty("timeout"));
-    }
-
-    public static String getParentAccount() {
-        return getProperty("parent.account");
-    }
-
-    public static String getAccountName() {
-        return getProperty("account.name");
-    }
-
-    public static String getContactToReport() {
-        return getProperty("contact.to.report");
     }
 
     public static String getApiUrl() {
@@ -82,5 +74,13 @@ public class PropertyReader {
 
     public static String getLeadUri() {
         return getProperty("lead.uri");
+    }
+
+    public static String getContactUri() {
+        return getProperty("contact.uri");
+    }
+
+    public static String getAccountUri() {
+        return getProperty("account.uri");
     }
 }

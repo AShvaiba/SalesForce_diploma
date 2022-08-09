@@ -2,15 +2,12 @@ package utils;
 
 public enum AccountTypeEnum {
 
-    ANALYST("Analyst"),
-    COMPETITOR("Competitor"),
-    CUSTOMER("Customer"),
-    INTEGRATOR("Integrator"),
-    INVESTOR("Investor"),
-    PARTNER("Partner"),
-    PRESS("Press"),
     PROSPECT("Prospect"),
-    RESELLER("Reseller"),
+    CUSTOMER_DIRECT("Customer - Direct"),
+    CUSTOMER_CHANNEL("Customer - Channel"),
+    CHANNEL_PARTNER("Channel Partner / Reseller"),
+    INSTALLATION_PARTNER("Installation Partner"),
+    TECHNOLOGY_PARTNER("Technology Partner"),
     OTHER("Other"),
     ;
 

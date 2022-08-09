@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 @Data
 @Builder
-public class PostLeadResponse {
+public class PostResponse {
     private String id;
     private boolean success;
     private ArrayList<Object> errors;
