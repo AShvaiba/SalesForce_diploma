@@ -6,16 +6,11 @@ pipeline {
         maven "M3"
     }
 
-    parameters {
-        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'GitParameterDefinition'
-        choice choices: ['Chrome', 'Edge', 'Firefox'], name: 'BROWSER'
-    }
-
     stages {
         stage('Test') {
             steps {
                 // Get some code from a GitHub repository
-                git branch: "$params.BRANCH", url: 'https://github.com/AShvaiba/SalesForce_diploma.git'
+                git 'https://github.com/AShvaiba/SalesForce_diploma.git'
 
                 // To run Maven on a Windows agent, use
                 bat "mvn clean test -Dbrowser=$BROWSER"
