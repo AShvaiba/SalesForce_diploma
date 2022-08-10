@@ -30,6 +30,7 @@ public class SelenideConfiguration {
         Configuration.baseUrl = getLoginPageUrl();
         Configuration.screenshots = isHeadless();
         Configuration.timeout = getTimeout();
+        Configuration.browserSize = getBrowserSize();
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)

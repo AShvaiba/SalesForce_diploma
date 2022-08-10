@@ -1,6 +1,6 @@
 package UI.pages.contacts;
 
-import UI.dto.Contact;
+import dto.Contact;
 import UI.wrappers.Dropdown;
 import UI.wrappers.Input;
 import UI.wrappers.InputWithSuggestion;
@@ -27,26 +27,23 @@ public class NewContactModal {
 
     private SelenideElement nameFieldToReview = $x("//a[text()='Name']");
 
-    private SelenideElement accountNameToReview = $x("//a[text()='Account Name']");
-
     @Step("Input required fields for new contact")
     public NewContactModal inputRequiredFieldsOnly(Contact contact) {
-        new Input("Last Name").writeForContact(contact.getLastName());
-        new InputWithSuggestion("Account Name").inputSuggestionForContact(contact.getAccountName());
+        new Input("Last Name").write(contact.getLastName());
         return this;
     }
 
     @Step("Input main fields for new contact")
     public NewContactModal inputMainFields(Contact contact) {
-        new Dropdown("Salutation").selectForContact(contact.getSalutation());
-        new Input("First Name").writeForContact(contact.getFirstName());
-        new Input("Last Name").writeForContact(contact.getLastName());
-        new InputWithSuggestion("Account Name").inputSuggestionForContact(contact.getAccountName());
-        new Input("Title").writeForContact(contact.getTitle());
-        new Input("Phone").writeForContact(contact.getPhone());
-        new Input("Mobile").writeForContact(contact.getMobile());
-        new Input("Email").writeForContact(contact.getEmail());
-        new InputWithSuggestion("Reports To").inputSuggestionForContact(contact.getReportsTo());
+        new Dropdown("Salutation").select(contact.getSalutation());
+        new Input("First Name").write(contact.getFirstName());
+        new Input("Last Name").write(contact.getLastName());
+        new InputWithSuggestion("Account Name").inputSuggestion(contact.getAccountName());
+        new Input("Title").write(contact.getTitle());
+        new Input("Phone").write(contact.getPhone());
+        new Input("Mobile").write(contact.getMobile());
+        new Input("Email").write(contact.getEmail());
+        new InputWithSuggestion("Reports To").inputSuggestion(contact.getReportsTo());
         return this;
     }
 
@@ -79,12 +76,6 @@ public class NewContactModal {
     @Step("Check name field to review presence")
     public NewContactModal checkNameFieldToReviewIsDisplayed() {
         nameFieldToReview.shouldBe(visible);
-        return this;
-    }
-
-    @Step("Check account name field to review presence")
-    public NewContactModal checkAccountNameFieldToReviewIsDisplayed() {
-        accountNameToReview.shouldBe(visible);
         return this;
     }
 }

@@ -1,4 +1,4 @@
-package API;
+package API.base;
 
 import com.google.gson.Gson;
 import io.restassured.response.Response;
@@ -20,7 +20,8 @@ public class AccessTokenGetter {
 
     public static String getAccessToken() {
         Gson gson = new Gson();
-        Response response = given()
+        Response response =
+        given()
                 .contentType("multipart/form-data")
                 .multiPart("username", getUserName())
                 .multiPart("password", getPassword() + getSecurityToken())
@@ -29,7 +30,8 @@ public class AccessTokenGetter {
                 .multiPart("client_secret", getClientSecret()).
                 log().all().
                 post(getAccessTokenEndpoint()).
-                then().statusCode(200).
+        then()
+                .statusCode(200).
                 extract().response();
 
         AccessTokenGetter accessTokenResponse = gson.fromJson(response.asString(), AccessTokenGetter.class);

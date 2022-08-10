@@ -1,5 +1,6 @@
-package UI.dto;
+package dto;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.Builder;
 import lombok.Data;
 
@@ -7,8 +8,11 @@ import lombok.Data;
 @Builder
 public class Contact {
 
+    @SerializedName("Id")
+    private String id;
     private String salutation;
     private String firstName;
+    @SerializedName("LastName")
     private String lastName;
     private String accountName;
     private String title;

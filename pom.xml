@@ -10,7 +10,7 @@
 
     <properties>
         <aspect.version>1.9.9.1</aspect.version>
-        <jackson.version>2.11.1</jackson.version>
+        <jackson.version>2.13.3</jackson.version>
     </properties>
 
     <build>

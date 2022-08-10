@@ -1,13 +1,21 @@
 package API;
 
-import org.testng.annotations.BeforeMethod;
+import API.APIClient.LeadsApi;
+import data.ITestData;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
-public class BaseApiTest {
+public class BaseApiTest implements ITestData {
 
     LeadsApi leadsApi;
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeTest(alwaysRun = true)
     public void setUp() {
         leadsApi = new LeadsApi();
+    }
+
+    @AfterTest(alwaysRun = true)
+    public void deletePostConditions() {
+        leadsApi.deleteAllLeads();
     }
 }

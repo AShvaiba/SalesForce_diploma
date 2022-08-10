@@ -1,17 +1,13 @@
 package data;
 
-import API.dto.Lead;
-import UI.dto.Account;
-import UI.dto.Contact;
-import UI.dto.SalesforceUser;
+import dto.Lead;
+import dto.Account;
+import dto.Contact;
+import dto.SalesforceUser;
 import com.github.javafaker.Faker;
-import utils.AccountUtils;
-import utils.ContactUtils;
-import utils.IndustryEnum;
-import utils.SalutationEnum;
+import utils.*;
 
-import static utils.PropertyReader.getPassword;
-import static utils.PropertyReader.getUserName;
+import static utils.PropertyReader.*;
 
 public interface ITestData {
 
@@ -23,14 +19,44 @@ public interface ITestData {
             .build();
 
     //accounts
-    Account ACCOUNT_WITH_MAIN_INFO = AccountUtils.createAccountWithMainInfo();
+    Account PRECONDITIONS_ACCOUNT = Account.builder()
+            .accountName("Test")
+            .build();
 
-    Account ACCOUNT_WITH_REQUIRED_FIELDS_ONLY = AccountUtils.createAccountWithOnlyRequiredFields();
+    Account ACCOUNT_WITH_MAIN_INFO = Account.builder()
+            .accountName(faker.name().lastName())
+            .parentAccount(PRECONDITIONS_ACCOUNT.getAccountName())
+            .phone(faker.phoneNumber().phoneNumber())
+            .fax(String.valueOf(faker.number().numberBetween(1000000, 10000000)))
+            .website(faker.name().username().concat(".com"))
+            .type(faker.options().option(AccountTypeEnum.values()).toString())
+            .industry(faker.options().option(IndustryEnum.values()).toString())
+            .build();
+
+    Account ACCOUNT_WITH_REQUIRED_FIELDS_ONLY = Account.builder()
+            .accountName(faker.name().lastName())
+            .build();
 
     //contacts
-    Contact CONTACT_WITH_MAIN_INFO = ContactUtils.createContactWithMainInfo();
+    Contact PRECONDITIONS_CONTACT = Contact.builder()
+            .lastName("Report_Contact")
+            .build();
 
-    Contact CONTACT_WITH_REQUIRED_FIELDS_ONLY = ContactUtils.createContactWithOnlyRequiredFields();
+    Contact CONTACT_WITH_MAIN_INFO = Contact.builder()
+            .salutation(faker.options().option(SalutationEnum.values()).toString())
+            .firstName(faker.name().firstName())
+            .lastName(faker.name().lastName())
+            .accountName(PRECONDITIONS_ACCOUNT.getAccountName())
+            .title(faker.animal().name())
+            .phone(faker.phoneNumber().cellPhone())
+            .mobile(faker.phoneNumber().subscriberNumber())
+            .email(faker.name().username().concat("@sales.com"))
+            .reportsTo(PRECONDITIONS_CONTACT.getLastName())
+            .build();
+
+    Contact CONTACT_WITH_REQUIRED_FIELDS_ONLY = Contact.builder()
+            .lastName(faker.name().lastName())
+            .build();
 
     //leads
     Lead LEAD_WITH_MAIN_INFO = Lead.builder()
@@ -46,10 +72,6 @@ public interface ITestData {
     Lead LEAD_WITH_REQUIRED_FIELDS_ONLY = Lead.builder()
             .lastName(faker.name().lastName())
             .company(faker.company().name())
-            .build();
-
-    Lead LEAD_WITH_EMPTY_FIELDS = Lead.builder()
-            .lastName(faker.name().lastName())
             .build();
 
     //expected error messages

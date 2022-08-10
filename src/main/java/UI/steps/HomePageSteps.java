@@ -11,15 +11,9 @@ public class HomePageSteps {
         homePage = new HomePage();
     }
 
-    @Step("Go to accounts page")
-    public HomePageSteps goToAccountsPage() {
-        homePage.goToAccounts();
-        return this;
-    }
-
-    @Step("Go to accounts page")
-    public HomePageSteps goToContactsPage() {
-        homePage.goToContacts();
+    @Step("Go to Sales Console page")
+    public HomePageSteps goToSalesConsolePage() {
+        homePage.goToSalesConsolePage();
         return this;
     }
 }

@@ -1,19 +1,18 @@
 package API;
 
 import API.dto.ErrorResponse;
-import API.dto.Lead;
 import API.dto.LeadsList;
-import API.dto.PostLeadResponse;
-import data.ITestData;
+import API.dto.PostResponse;
+import dto.Lead;
 import org.testng.annotations.Test;
 
-public class LeadsTest extends BaseApiTest implements ITestData {
+public class LeadsTest extends BaseApiTest {
 
     @Test(description = "Test creation new lead with main info specified")
     public void createNewLeadWithMainInfo() {
         Lead testLead = LEAD_WITH_MAIN_INFO;
 
-        PostLeadResponse response = leadsApi.createNewLead(testLead, CODE_201_CREATED);
+        PostResponse response = leadsApi.createNewLead(testLead, CODE_201_CREATED);
 
         response.checkPostSucceed();
         String createdLeadId = response.getId();
@@ -25,7 +24,7 @@ public class LeadsTest extends BaseApiTest implements ITestData {
     public void createNewLeadWithOnlyRequiredInfo() {
         Lead testLead = LEAD_WITH_REQUIRED_FIELDS_ONLY;
 
-        PostLeadResponse response = leadsApi.createNewLead(testLead, CODE_201_CREATED);
+        PostResponse response = leadsApi.createNewLead(testLead, CODE_201_CREATED);
 
         response.checkPostSucceed();
         String createdLeadId = response.getId();

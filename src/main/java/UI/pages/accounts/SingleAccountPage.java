@@ -34,9 +34,4 @@ public class SingleAccountPage {
         new AccountContactInfoValidation("Website").validateLinkText(expectedWebsite);
         return this;
     }
-
-    public SingleAccountPage checkAccountOwner(String expectedOwner) {
-        new AccountContactInfoValidation("Account Owner").validateLinkText(expectedOwner);
-        return this;
-    }
 }

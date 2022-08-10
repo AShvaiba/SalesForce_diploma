@@ -12,19 +12,14 @@ public class InputWithSuggestion extends BaseWrapper{
         super(label);
     }
 
-    public void inputSuggestionForAccount(String text) {
-        log.info("Set account info for {}: {}", label, text);
-        $x(String.format("//span[text()='%s']" +
-                "/ancestor::div[contains(@class, 'uiInput')]//input", label)).sendKeys(text);
-        $x(String.format("//div[@title='%s']", text)).shouldBe(visible)
-                .click();
-    }
-
-    public void inputSuggestionForContact(String text) {
-        log.info("Set contact info for {}: {}", label, text);
+    public void inputSuggestion(String text) {
+        log.info("Set info for {}: {}", label, text);
         $x(String.format("//label[text()='%s']/ancestor::div[contains(@class, 'slds-grid')]//input", label))
+                .scrollIntoView(true)
                 .sendKeys(text);
-        $x(String.format("//strong[text()='%s']", text)).shouldBe(visible)
+        $x(String.format("//strong[text()='%s']", text))
+                .scrollIntoView(true)
+                .shouldBe(visible)
                 .click();
     }
 }

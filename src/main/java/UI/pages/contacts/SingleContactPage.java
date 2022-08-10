@@ -3,15 +3,14 @@ package UI.pages.contacts;
 import UI.wrappers.AccountContactInfoValidation;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class SingleContactPage {
 
-    private SelenideElement contactFullName = $x("//div[text()='Contact']/following::span[@data-aura-class='uiOutputText'][1]");
+    private SelenideElement contactFullName = $x("//slot[@name='primaryField']/descendant::span[1]");
 
     public SingleContactPage checkContactFullName(String expectedContactFullName) {
-        contactFullName.shouldHave(exactText(expectedContactFullName));
+        new AccountContactInfoValidation("").validateContactTitle(expectedContactFullName);
         return this;
     }
 
