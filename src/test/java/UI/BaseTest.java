@@ -10,6 +10,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
+import java.util.Optional;
+
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public abstract class BaseTest implements ITestData {
@@ -36,7 +38,8 @@ public abstract class BaseTest implements ITestData {
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
-        SelenideConfiguration.configureBrowser("chrome");
+        String browser = Optional.ofNullable(System.getProperty("browser")).orElse("Chrome");
+        SelenideConfiguration.configureBrowser(browser);
         loginSteps = new LoginSteps();
         homePageSteps = new HomePageSteps();
         salesConsolePageSteps = new SalesConsolePageSteps();
