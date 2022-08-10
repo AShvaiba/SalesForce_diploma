@@ -13,7 +13,7 @@ pipeline {
                 git 'https://github.com/AShvaiba/SalesForce_diploma.git'
 
                 // To run Maven on a Windows agent, use
-                bat "mvn clean test -Dbrowser=$BROWSER"
+                bat "mvn clean test -Dmaven.test.failure.ignore=true -Dbrowser=$BROWSER"
             }
 
             post {
@@ -25,7 +25,7 @@ pipeline {
 
             }
         }
-        stage('reports') {
+        stage('Reporting') {
             steps {
                 script {
                     allure([
