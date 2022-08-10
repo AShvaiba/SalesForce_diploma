@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class LeadsTest extends BaseApiTest {
 
-    @Test(description = "Test creation new lead with main info specified")
+    @Test(description = "Test creation new lead with main info specified", priority = 1)
     public void createNewLeadWithMainInfo() {
         Lead testLead = LEAD_WITH_MAIN_INFO;
 
@@ -20,7 +20,7 @@ public class LeadsTest extends BaseApiTest {
         createdLead.compareToExpectedLead(testLead);
     }
 
-    @Test(description = "Test creation new lead with only required info specified")
+    @Test(description = "Test creation new lead with only required info specified", priority = 1)
     public void createNewLeadWithOnlyRequiredInfo() {
         Lead testLead = LEAD_WITH_REQUIRED_FIELDS_ONLY;
 
@@ -32,7 +32,7 @@ public class LeadsTest extends BaseApiTest {
         createdLead.compareToExpectedLead(testLead);
     }
 
-    @Test(description = "Test update main fields of random lead")
+    @Test(description = "Test update main fields of random lead", priority = 2)
     public void updateMainFieldsOfRandomLead() {
         Lead testLeadForUpdate = LEAD_WITH_MAIN_INFO;
 
@@ -53,7 +53,7 @@ public class LeadsTest extends BaseApiTest {
         errorResponse[0].checkMessage(ERROR_MESSAGE_MISSED_ALL_FIELDS_FOR_LEAD_CREATION);
     }
 
-    @Test(description = "Test delete random lead")
+    @Test(description = "Test delete random lead", priority = 3)
     public void deleteRandomLead() {
         LeadsList leadsList = leadsApi.getLeadsList(CODE_200_OK);
 

@@ -13,10 +13,10 @@ public class SelenideConfiguration {
         setUpBasicConfiguration();
 
         switch (browser) {
-            case "safari":
+            case "Safari":
                 Configuration.browser = SAFARI;
                 break;
-            case "firefox":
+            case "Firefox":
                 Configuration.browser = FIREFOX;
                 break;
             default:
@@ -28,9 +28,10 @@ public class SelenideConfiguration {
     public static void setUpBasicConfiguration() {
 
         Configuration.baseUrl = getLoginPageUrl();
-        Configuration.screenshots = isHeadless();
+        Configuration.screenshots = doesScreenshot();
         Configuration.timeout = getTimeout();
         Configuration.browserSize = getBrowserSize();
+        Configuration.headless = isHeadless();
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)

@@ -48,6 +48,10 @@ public class PropertyReader {
         return Long.parseLong(getProperty("timeout"));
     }
 
+    public static boolean doesScreenshot() {
+        return Boolean.parseBoolean(getProperty("screenshot"));
+    }
+
     public static String getApiUrl() {
         return getProperty("api.url");
     }

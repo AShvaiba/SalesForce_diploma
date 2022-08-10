@@ -31,6 +31,9 @@
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspect.version}/aspectjweaver-${aspect.version}.jar -Xmx256m
                     </argLine>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/parallelByTests.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
             </plugin>
             <plugin>

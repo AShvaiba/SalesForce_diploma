@@ -29,6 +29,7 @@ public class NewAccountModal {
 
     @Step("Input required fields for the new account")
     public NewAccountModal inputRequiredFieldsOnly(Account account) {
+        accountInfo.shouldBe(visible);
         new Input("Account Name").write(account.getAccountName());
         return this;
     }

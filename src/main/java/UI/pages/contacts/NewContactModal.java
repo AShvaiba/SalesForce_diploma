@@ -29,12 +29,14 @@ public class NewContactModal {
 
     @Step("Input required fields for new contact")
     public NewContactModal inputRequiredFieldsOnly(Contact contact) {
+        contactInfo.shouldBe(visible);
         new Input("Last Name").write(contact.getLastName());
         return this;
     }
 
     @Step("Input main fields for new contact")
     public NewContactModal inputMainFields(Contact contact) {
+        contactInfo.shouldBe(visible);
         new Dropdown("Salutation").select(contact.getSalutation());
         new Input("First Name").write(contact.getFirstName());
         new Input("Last Name").write(contact.getLastName());
