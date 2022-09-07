@@ -13,9 +13,7 @@ pipeline {
                 git 'https://github.com/AShvaiba/SalesForce_diploma.git'
 
                 // To run Maven on a Windows agent, use
-                bat "mvn clean test -Dmaven.test.failure.ignore=true -Dbrowser=$BROWSER -Dlogin.page.url=$LOGIN_PAGE_URL
-                -Dusername=$USERNAME -Dpassword=$PASSWORD -Dapi.url=$API_URL -Dsecurity.token=$SECURITY_TOKEN
-                -Dclient.id=$CLIENT_ID -Dclient.secret=$CLIENT_SECRET"
+                bat "mvn clean test -Dmaven.test.failure.ignore=true -Dbrowser=$BROWSER -Dlogin.page.url=$LOGIN_PAGE_URL -Dusername=$USERNAME -Dpassword=$PASSWORD -Dapi.url=$API_URL -Dsecurity.token=$SECURITY_TOKEN -Dclient.id=$CLIENT_ID -Dclient.secret=$CLIENT_SECRET"
             }
 
             post {
