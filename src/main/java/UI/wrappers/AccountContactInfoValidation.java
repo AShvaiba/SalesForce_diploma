@@ -25,7 +25,6 @@ public class AccountContactInfoValidation extends BaseWrapper{
         }
 
         $x(String.format("//p[text()='%s']/following-sibling::p/descendant::a", label))
-                .shouldBe(visible)
                 .shouldHave(exactText(text));
     }
 

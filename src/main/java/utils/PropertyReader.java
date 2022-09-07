@@ -24,16 +24,24 @@ public class PropertyReader {
         return properties.getProperty(key);
     }
 
+    public static String getSecureProperty(String propertyName) {
+        String systemProperty = System.getProperty(propertyName);
+        if (systemProperty != null) {
+            return systemProperty;
+        }
+        else return getProperty(propertyName);
+    }
+
     public static String getUserName() {
-        return getProperty("username");
+        return getSecureProperty("username");
     }
 
     public static String getPassword() {
-        return getProperty("password");
+        return getSecureProperty("password");
     }
 
     public static String getLoginPageUrl() {
-        return getProperty("login.page.url");
+        return getSecureProperty("login.page.url");
     }
 
     public static boolean isHeadless() {
@@ -53,11 +61,11 @@ public class PropertyReader {
     }
 
     public static String getApiUrl() {
-        return getProperty("api.url");
+        return getSecureProperty("api.url");
     }
 
     public static String getSecurityToken() {
-        return getProperty("security.token");
+        return getSecureProperty("security.token");
     }
 
     public static String getGrantType() {
@@ -65,11 +73,11 @@ public class PropertyReader {
     }
 
     public static String getClientId() {
-        return getProperty("client.id");
+        return getSecureProperty("client.id");
     }
 
     public static String getClientSecret() {
-        return getProperty("client.secret");
+        return getSecureProperty("client.secret");
     }
 
     public static String getAccessTokenEndpoint() {

@@ -48,7 +48,7 @@ public interface ITestData {
             .lastName(faker.name().lastName())
             .accountName(PRECONDITIONS_ACCOUNT.getAccountName())
             .title(faker.animal().name())
-            .phone(faker.phoneNumber().cellPhone())
+            .phone(faker.phoneNumber().phoneNumber())
             .mobile(faker.phoneNumber().subscriberNumber())
             .email(faker.name().username().concat("@sales.com"))
             .reportsTo(PRECONDITIONS_CONTACT.getLastName())

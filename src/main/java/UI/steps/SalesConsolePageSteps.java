@@ -13,13 +13,15 @@ public class SalesConsolePageSteps {
 
     @Step("Go to accounts page")
     public SalesConsolePageSteps goToAccountsPage() {
-        salesConsolePage.goToAccounts();
+        salesConsolePage.closeExcessTabs()
+                .goToAccounts();
         return this;
     }
 
     @Step("Go to contacts page")
     public SalesConsolePageSteps goToContactsPage() {
-        salesConsolePage.goToContacts();
+        salesConsolePage.closeExcessTabs()
+                .goToContacts();
         return this;
     }
 }

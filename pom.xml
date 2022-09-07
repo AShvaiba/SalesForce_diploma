@@ -29,7 +29,7 @@
                 <version>3.0.0-M3</version>
                 <configuration>
                     <argLine>
-                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspect.version}/aspectjweaver-${aspect.version}.jar -Xmx256m
+                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspect.version}/aspectjweaver-${aspect.version}.jar -Xmx1024m
                     </argLine>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/parallelByTests.xml</suiteXmlFile>
