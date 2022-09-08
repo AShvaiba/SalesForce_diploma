@@ -14,7 +14,8 @@ pipeline {
 
                 // To run Maven on a Windows agent, use
                 bat "set JAVA_HOME='C:/Program Files/Amazon Corretto/jdk11.0.11_9'"
-                //bat "java -version"
+                bat "java -version"
+                bat "echo %JAVA_HOME%"
                 bat "mvn clean test -Dmaven.test.failure.ignore=true -Dbrowser=$BROWSER -Dlogin.page.url=$LOGIN_PAGE_URL -Dusername=$USERNAME -Dpassword=$PASSWORD -Dapi.url=$API_URL -Dsecurity.token=$SECURITY_TOKEN -Dclient.id=$CLIENT_ID -Dclient.secret=$CLIENT_SECRET"
             }
 
