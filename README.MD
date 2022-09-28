@@ -57,5 +57,5 @@ To run tests locally you can use just the comand 'mvn clean test'
 5. Set https://github.com/AShvaiba/SalesForce_diploma.git in 'Repository URL' field
 6. Add your Personal access token to credentials. If you do not have any create it: in your GitHub account go to Settings > Developer Settings > Personal access tokens
 7. Add Branch to build - specify $BRANCH as Branch Specifier
-
+8. Set Jenkinsfile in 'Script Path' field
 After performing described steps you are able to use 'Build with Parameters' for your pipeline with needed parameters.
