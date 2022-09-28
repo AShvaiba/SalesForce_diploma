@@ -11,6 +11,7 @@ public class BaseApiTest implements ITestData {
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
+        System.setProperty("username", "shvybchk@hell.yes");
         leadsApi = new LeadsApi();
     }
 

@@ -5,10 +5,11 @@ import API.dto.LeadsList;
 import API.dto.PostResponse;
 import dto.Lead;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class LeadsTest extends BaseApiTest {
 
-    @Test(description = "Test creation new lead with main info specified", priority = 1)
+    @Test(description = "Test creation new lead with main info specified", priority = 1, retryAnalyzer = Retry.class)
     public void createNewLeadWithMainInfo() {
         Lead testLead = LEAD_WITH_MAIN_INFO;
 
@@ -20,7 +21,7 @@ public class LeadsTest extends BaseApiTest {
         createdLead.compareToExpectedLead(testLead);
     }
 
-    @Test(description = "Test creation new lead with only required info specified", priority = 1)
+    @Test(description = "Test creation new lead with only required info specified", priority = 1, retryAnalyzer = Retry.class)
     public void createNewLeadWithOnlyRequiredInfo() {
         Lead testLead = LEAD_WITH_REQUIRED_FIELDS_ONLY;
 
@@ -32,7 +33,7 @@ public class LeadsTest extends BaseApiTest {
         createdLead.compareToExpectedLead(testLead);
     }
 
-    @Test(description = "Test update main fields of random lead", priority = 2)
+    @Test(description = "Test update main fields of random lead", priority = 2, retryAnalyzer = Retry.class)
     public void updateMainFieldsOfRandomLead() {
         Lead testLeadForUpdate = LEAD_WITH_MAIN_INFO;
 
@@ -45,7 +46,7 @@ public class LeadsTest extends BaseApiTest {
         updatedLead.compareToExpectedLead(testLeadForUpdate);
     }
 
-    @Test(description = "Test creation new lead with empty fields")
+    @Test(description = "Test creation new lead with empty fields", retryAnalyzer = Retry.class)
     public void createNewLeadWithEmptyFields() {
         ErrorResponse[] errorResponse = leadsApi.createLeadWithEmptyFields();
 
@@ -53,7 +54,7 @@ public class LeadsTest extends BaseApiTest {
         errorResponse[0].checkMessage(ERROR_MESSAGE_MISSED_ALL_FIELDS_FOR_LEAD_CREATION);
     }
 
-    @Test(description = "Test delete random lead", priority = 3)
+    @Test(description = "Test delete random lead", priority = 3, retryAnalyzer = Retry.class)
     public void deleteRandomLead() {
         LeadsList leadsList = leadsApi.getLeadsList(CODE_200_OK);
 

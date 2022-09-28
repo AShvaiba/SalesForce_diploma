@@ -5,10 +5,7 @@ import API.APIClient.ContactsApi;
 import UI.browser.SelenideConfiguration;
 import UI.steps.*;
 import data.ITestData;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 import java.util.Optional;
 
@@ -25,7 +22,7 @@ public abstract class BaseTest implements ITestData {
     private AccountsApi accountsApi;
     private ContactsApi contactsApi;
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeSuite(alwaysRun = true)
     public void setPreconditions() {
         accountsApi = new AccountsApi();
         contactsApi = new ContactsApi();
@@ -52,7 +49,7 @@ public abstract class BaseTest implements ITestData {
         closeWebDriver();
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public void deletePostConditions() {
         accountsApi.deleteAllAccounts();
         contactsApi.deleteAllContacts();

@@ -37,10 +37,9 @@ public class ContactSteps {
         return this;
     }
 
-    @Step("Check data of contact created with only required fields: Last Name and Account Name")
+    @Step("Check data of contact created with only required fields: Last Name")
     public ContactSteps checkRequiredFields(Contact expectedContact) {
-        singleContactPage.checkContactFullName(expectedContact.getLastName())
-                .checkAccountName(expectedContact.getAccountName());
+        singleContactPage.checkContactFullName(expectedContact.getLastName());
         return this;
     }
 
